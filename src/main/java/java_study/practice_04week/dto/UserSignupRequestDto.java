@@ -12,14 +12,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class UserSignupRequestDto {
+
     private String name;
     private String email;
+    private String password;
 
-    public UserEntity toUserEntity() {
+    public UserEntity SignUpToUserEntity() {
+
         return UserEntity.builder()
                 .name(name)
                 .email(email)
+                .password(password)
                 .build();
 
     }
+
 }

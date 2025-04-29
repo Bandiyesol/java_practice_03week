@@ -1,7 +1,6 @@
 package java_study.practice_04week.user;
 
 import jakarta.persistence.*;
-import java_study.practice_04week.dto.RedisUserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -34,11 +33,4 @@ public class UserEntity {
         this.password = password;
     }
 
-    public RedisUserDto toRedisUserDto() {
-        return RedisUserDto.builder()
-                .id(id)
-                .name(name)
-                .email(email)
-                .build();
-    }
 }
