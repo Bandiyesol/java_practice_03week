@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 
 public class UserEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
 
@@ -21,16 +22,22 @@ public class UserEntity {
     private String email;
     private String password;
 
-    public void SetName(String name) {
+    private String token;
+
+    public void changeName(String name) {
         this.name = name;
     }
 
-    public void SetEmail(String email) {
+    public void changeEmail(String email) {
         this.email = email;
     }
 
-    public void SetPassword(String password) {
+    public void changePassword(String password) {
         this.password = password;
+    }
+
+    public void giveToken(String token) {
+        this.token = token;
     }
 
 }

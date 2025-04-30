@@ -1,5 +1,6 @@
 package java_study.practice_04week.controller;
 
+import java_study.practice_04week.dto.UserLoginRequestDto;
 import java_study.practice_04week.dto.UserSignupRequestDto;
 import java_study.practice_04week.dto.UserSignupResponseDto;
 import java_study.practice_04week.repository.UserRepository;
@@ -59,4 +60,18 @@ public class UserController {
         userService.deleteInfo(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserLoginRequestDto request) {
+        String loginUser = userService.loginUser(request);
+        return ResponseEntity.ok(loginUser);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(@RequestBody UserLoginRequestDto request) {
+        String loginUser = userService.loginUser(request);
+        userService.logout(loginUser);
+        return ResponseEntity.ok("로그아웃 되었습니다.");
+    }
+
 }
