@@ -30,21 +30,21 @@ public class UserController {
     }
 
     @PutMapping("/changename/{id}")
-    public ResponseEntity<UserSignupResponseDto> changeName(@PathVariable Long id,@RequestBody String name) {
+    public ResponseEntity<UserSignupResponseDto> changeName(@PathVariable("id") Long id,@RequestBody String name) {
         UserSignupResponseDto response = userService.changeName(id, name);
 
         return ResponseEntity.ok(response);
     }
 
     @PutMapping("/changemail/{id}")
-    public ResponseEntity<UserSignupResponseDto> changeEmail(@PathVariable Long id,@RequestBody String email) {
+    public ResponseEntity<UserSignupResponseDto> changeEmail(@PathVariable("id") Long id,@RequestBody String email) {
         UserSignupResponseDto response = userService.changeEmail(id, email);
 
         return ResponseEntity.ok(response);
     }
 
     @PutMapping("/changepassword/{id}")
-    public ResponseEntity<UserSignupResponseDto> changePassword(@PathVariable Long id,@RequestBody String password) {
+    public ResponseEntity<UserSignupResponseDto> changePassword(@PathVariable("id") Long id,@RequestBody String password) {
         UserSignupResponseDto response = userService.changePassword(id, password);
 
         return ResponseEntity.ok(response);
@@ -56,7 +56,7 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteinfo/{id}")
-    public ResponseEntity<UserSignupResponseDto> deleteInfo(@PathVariable Long id) {
+    public ResponseEntity<UserSignupResponseDto> deleteInfo(@PathVariable("id") Long id) {
         userService.deleteInfo(id);
         return ResponseEntity.noContent().build();
     }

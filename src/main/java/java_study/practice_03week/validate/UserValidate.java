@@ -13,6 +13,13 @@ public class UserValidate {
 
     private final UserRepository userRepository;
 
+    public UserEntity UserValidateId(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(
+                        () -> new IllegalArgumentException("유저를 찾을 수 없습니다.")
+                );
+    }
+
     public void UserValidateName(String name) {
         if (StringUtils.isNotBlank(name) && userRepository.existsByName(name)) {
             throw new IllegalArgumentException("이미 등록된 이름입니다.");
@@ -26,11 +33,10 @@ public class UserValidate {
     }
 
     public UserEntity findByNameAndPassword(String name, String password) {
-        userRepository
+        return userRepository
                 .findByNameAndPassword(name, password)
                 .orElseThrow(
                         () -> new IllegalArgumentException("잘못된 정보입니다.")
                 );
-        return null;
     }
 }

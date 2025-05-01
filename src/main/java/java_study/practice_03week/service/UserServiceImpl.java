@@ -36,25 +36,40 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserEntity updateUser(UserEntity user) {
+
+        UserEntity userEntity = userValidate.UserValidateId(user.getId());
+
+        userValidate.UserValidateName(userEntity.getName());
+        userEntity.changeName(user.getName());
+
+        userValidate.UserValidateEmail(userEntity.getEmail());
+        userEntity.changeEmail(user.getEmail());
+
+        userEntity.changePassword(user.getPassword());
+
+        userRepository.save(userEntity);
+
+        return userEntity;
+    }
+
+    @Override
     public UserSignupResponseDto changeName(Long id, String name) {
 
-        UserEntity user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("유저를 찾을 수 없습니다."));
+        UserEntity user = userValidate.UserValidateId(id);
 
         userValidate.UserValidateName(name);
-
         user.changeName(name);
 
         userRepository.save(user);
 
-        return new UserSignupResponseDto(user.getName(), user.getEmail(), user.getPassword());
+        return UserSignupResponseDto.SignUpToUserEntity(user);
     }
 
     @Override
     public UserSignupResponseDto changeEmail(Long id, String email) {
 
-        UserEntity user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("유저를 찾을 수 없습니다."));
+        UserEntity user = userValidate.UserValidateId(id);
 
         userValidate.UserValidateEmail(email);
 
@@ -62,20 +77,19 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user);
 
-        return new UserSignupResponseDto(user.getName(), user.getEmail(), user.getPassword());
+        return UserSignupResponseDto.SignUpToUserEntity(user);
     }
 
     @Override
     public UserSignupResponseDto changePassword(Long id, String password) {
 
-        UserEntity user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("유저를 찾을 수 없습니다."));
+        UserEntity user = userValidate.UserValidateId(id);
 
         user.changePassword(password);
 
         userRepository.save(user);
 
-        return new UserSignupResponseDto(user.getName(), user.getEmail(), user.getPassword());
+        return UserSignupResponseDto.SignUpToUserEntity(user);
     }
 
     @Override
