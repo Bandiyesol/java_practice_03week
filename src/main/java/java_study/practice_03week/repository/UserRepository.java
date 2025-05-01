@@ -1,6 +1,6 @@
-package java_study.practice_04week.repository;
+package java_study.practice_03week.repository;
 
-import java_study.practice_04week.user.UserEntity;
+import java_study.practice_03week.user.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

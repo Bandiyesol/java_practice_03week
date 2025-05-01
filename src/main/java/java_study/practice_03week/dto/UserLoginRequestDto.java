@@ -1,4 +1,4 @@
-package java_study.practice_04week.dto;
+package java_study.practice_03week.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package java_study.practice_04week.validate;
+package java_study.practice_03week.validate;
 
-import java_study.practice_04week.repository.UserRepository;
-import java_study.practice_04week.user.UserEntity;
+import java_study.practice_03week.repository.UserRepository;
+import java_study.practice_03week.user.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.stereotype.Component;

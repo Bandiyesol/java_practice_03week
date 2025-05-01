@@ -1,4 +1,4 @@
-package java_study.practice_04week.user;
+package java_study.practice_03week.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

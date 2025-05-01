@@ -1,6 +1,6 @@
-package java_study.practice_04week.dto;
+package java_study.practice_03week.dto;
 
-import java_study.practice_04week.user.UserEntity;
+import java_study.practice_03week.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

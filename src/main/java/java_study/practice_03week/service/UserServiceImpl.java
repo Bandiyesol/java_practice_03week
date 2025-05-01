@@ -1,11 +1,11 @@
-package java_study.practice_04week.service;
+package java_study.practice_03week.service;
 
-import java_study.practice_04week.dto.UserLoginRequestDto;
-import java_study.practice_04week.dto.UserSignupRequestDto;
-import java_study.practice_04week.dto.UserSignupResponseDto;
-import java_study.practice_04week.repository.UserRepository;
-import java_study.practice_04week.user.UserEntity;
-import java_study.practice_04week.validate.UserValidate;
+import java_study.practice_03week.dto.UserLoginRequestDto;
+import java_study.practice_03week.dto.UserSignupRequestDto;
+import java_study.practice_03week.dto.UserSignupResponseDto;
+import java_study.practice_03week.repository.UserRepository;
+import java_study.practice_03week.user.UserEntity;
+import java_study.practice_03week.validate.UserValidate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
